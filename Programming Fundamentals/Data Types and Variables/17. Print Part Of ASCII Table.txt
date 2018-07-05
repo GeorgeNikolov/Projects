@@ -1,0 +1,18 @@
+using System;
+
+namespace S06_17ASCIItable
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int Start = int.Parse(Console.ReadLine());
+            int Stop = int.Parse(Console.ReadLine());
+
+            for (int i = Start; i <= Stop; i++)
+            {
+                Console.Write((char)i + " ");
+            }
+        }
+    }
+}

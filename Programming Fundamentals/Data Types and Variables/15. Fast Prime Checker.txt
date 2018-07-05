@@ -1,0 +1,25 @@
+using System;
+
+namespace S06_15FastPrimeChecker
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int range = int.Parse(Console.ReadLine());
+            for (int numberToBeChecked = 0; numberToBeChecked <= range; numberToBeChecked++)
+            {
+                bool isPrime = true;
+                for (int divider = 2; divider <= Math.Sqrt(numberToBeChecked); divider++)
+                {
+                    if (numberToBeChecked % divider == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                Console.WriteLine($"{numberToBeChecked} -> {isPrime}");
+            }
+        }
+    }
+}
