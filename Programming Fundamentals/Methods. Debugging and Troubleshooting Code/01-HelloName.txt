@@ -1,0 +1,17 @@
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string name = Name(Console.ReadLine());
+            Console.WriteLine($"Hello, {name}!");
+        }
+       static string Name(string name)
+        {
+            return name;
+        }
+    }
+}

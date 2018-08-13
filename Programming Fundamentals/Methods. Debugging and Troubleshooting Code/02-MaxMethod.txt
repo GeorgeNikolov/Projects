@@ -1,0 +1,35 @@
+using System;
+
+namespace P01Hello
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int c = int.Parse(Console.ReadLine());
+            int maxNum = GetMax(a,b);
+            if(c > maxNum)
+            {
+                Console.WriteLine(c);
+            }
+            else
+            {
+                Console.WriteLine(maxNum);
+            }
+        }
+
+         static int GetMax(int a, int b)
+        {
+            if(a > b)
+            {
+                return a;
+            }
+            else
+            {
+                return b;
+            }
+        }
+    }
+}

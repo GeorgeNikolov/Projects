@@ -1,0 +1,16 @@
+using System;
+
+namespace P03NamingTheLastDigit
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] lastDigit = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            string number = Console.ReadLine();
+            Console.WriteLine(lastDigit[int.Parse(number[number.Length-1].ToString())]);
+        }
+
+        
+    }
+}
