@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace P03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> inputList = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+            int[] command = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            List<int> list = new List<int>();
+
+            int takeNums = command[0];
+            int deletedNums = command[1];
+            int searchNum = command[2];
+
+            for (int i = 0; i < takeNums; i++)
+            {
+                list.Add(inputList[i]);
+            }
+
+            for (int i = 0; i < deletedNums; i++)
+            {
+                list.RemoveAt(0);
+            }
+
+            if (list.Contains(searchNum))
+            {
+                Console.WriteLine("YES!");
+            }
+            else
+            {
+                Console.WriteLine("NO!");
+            }
+
+        }
+    }
+}

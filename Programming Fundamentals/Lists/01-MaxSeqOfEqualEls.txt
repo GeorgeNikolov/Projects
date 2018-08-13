@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Lists_Exercises
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+            int currentDigit = 0;
+            int maxLength = 0;
+            
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                int currentLength = 0;
+
+                for (int j = i; j < numbers.Count; j++)
+                {
+                    if (numbers[i] == numbers[j])
+                    {
+                        currentLength++;
+                        if (maxLength < currentLength)
+                        {
+                            maxLength = currentLength;
+                            currentDigit = numbers[i];
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
+            for (int i = 0; i < maxLength; i++)
+            {
+                Console.Write(currentDigit + " ");
+            }
+
+        }
+    }
+}
