@@ -1,0 +1,50 @@
+using System;
+using System.Linq;
+
+namespace P02RotateAndSum
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] input = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            int k = int.Parse(Console.ReadLine());
+
+            int[] numbers = new int[input.Length];
+            //inserts the values of the input array into the numbers array
+            for (int i = 0; i < input.Length; i++)
+            {
+                numbers[i] = int.Parse(input[i]);
+            }
+
+            int[] sumArr = new int[numbers.Length];// the sum of the rotated arrays
+
+
+            for (int i = 0; i < k; i++)
+            {
+                int[] rotateElements = RotatedNums(numbers);//saves the rotated arrays
+
+                for (int j = 0; j < sumArr.Length; j++)
+                {
+                    sumArr[j] += rotateElements[j];
+
+                }
+                numbers = rotateElements;
+            }
+            Console.WriteLine(string.Join(" ", sumArr));
+        }
+        static int[] RotatedNums(int[] numbers)
+        {
+            int lastElement = numbers[numbers.Length - 1];
+            int[] rotateElements = new int[numbers.Length];
+            rotateElements[0] = lastElement; // sets the first index of the array to be the last index of the original array(numbers)
+            //assigns the values after the first index
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                rotateElements[i] = numbers[i - 1];
+            }
+            //returns the rotated array
+            return rotateElements;
+        }
+    }
+}

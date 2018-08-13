@@ -1,0 +1,29 @@
+using System;
+
+namespace P01LargestCommonEnd
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] firstArrWords = Console.ReadLine().Split();
+            string[] secondArrWords = Console.ReadLine().Split();
+            int counter = 0;
+            int counterLeft = 0;
+            int minLength = Math.Min(firstArrWords.Length, secondArrWords.Length);
+
+            for (int i = 0; i < minLength; i++)
+            {
+                if (firstArrWords[i] == secondArrWords[i])
+                {
+                    counter++;
+                }
+                if (firstArrWords[firstArrWords.Length - 1 - i] == secondArrWords[secondArrWords.Length - 1 - i])
+                {
+                    counterLeft++;
+                }
+            }
+            Console.WriteLine(Math.Max(counterLeft,counter));
+        }
+    }
+}

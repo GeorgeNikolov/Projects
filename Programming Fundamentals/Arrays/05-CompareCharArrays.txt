@@ -1,0 +1,45 @@
+using System;
+using System.Linq;
+
+namespace P05CompareCharArrays
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            char[] firstArr = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(char.Parse).ToArray();
+            char[] secondArr = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(char.Parse).ToArray();
+
+            int minLength = Math.Min(firstArr.Length, secondArr.Length);
+            if(firstArr.Length == secondArr.Length)
+            {
+                for (int i = 0; i < firstArr.Length; i++)
+                {
+                    if(firstArr[i] > secondArr[i])
+                    {
+                        Console.WriteLine(secondArr);
+                        Console.WriteLine(firstArr);
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine(firstArr);
+                        Console.WriteLine(secondArr);
+                        break;
+                    }
+                }
+            }
+            else if(firstArr.Length > secondArr.Length) 
+            {
+                Console.WriteLine(secondArr);
+                Console.WriteLine(firstArr);
+            }
+            else
+            {
+                Console.WriteLine(firstArr);
+                Console.WriteLine(secondArr);
+            }
+
+        }
+    }
+}
