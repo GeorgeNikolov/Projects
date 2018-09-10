@@ -1,0 +1,42 @@
+using System;
+using System.Text;
+namespace P06SumBigNumbers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string firstNum = Console.ReadLine().TrimStart('0');
+            string secondNum = Console.ReadLine().TrimStart('0');
+            int length = Math.Max(firstNum.Length, secondNum.Length);
+
+            firstNum = firstNum.PadLeft(length, '0');
+            secondNum = secondNum.PadLeft(length, '0');
+            
+            StringBuilder sb = new StringBuilder();
+            int remainder = 0;
+            //9999
+            //0001
+            for (int i = length - 1; i >= 0; i--)
+            {
+                int num1 = int.Parse(firstNum[i].ToString());
+                
+                int num2 = int.Parse(secondNum[i].ToString());
+                int sum = num1 + num2 + remainder;
+                int lastDigit = sum % 10;
+                sb.Append(lastDigit);
+                remainder = sum / 10;
+            }
+            if(remainder > 0) {
+                sb.Append(remainder);
+            }
+            for (int i = sb.Length - 1; i >= 0; i--)
+            {
+                Console.Write(sb[i]);
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+

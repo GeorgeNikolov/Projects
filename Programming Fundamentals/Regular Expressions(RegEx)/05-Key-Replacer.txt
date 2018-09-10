@@ -1,0 +1,37 @@
+using System;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+
+namespace P05KeyReplacer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string pattern = @"(^[A-Za-z]+)(.*)[\\|\||\<]+([A-Za-z]+)$";
+            Regex regex = new Regex(pattern);
+            string keys = Console.ReadLine();
+            Match validKeys = regex.Match(keys);
+            string startKey = validKeys.Groups[1].Value;
+            string endKey = validKeys.Groups[3].Value;
+            string text = Console.ReadLine();
+            string secondPattern = $@"{startKey}(.*?){endKey}";
+            MatchCollection words = Regex.Matches(text,secondPattern);
+            StringBuilder sb = new StringBuilder();
+            foreach (Match word in words)
+            {
+                sb.Append(word.Groups[1].Value);
+            }
+            if(sb.Length == 0)
+            {
+                Console.WriteLine("Empty result");
+            }
+            else
+            {
+                Console.WriteLine(sb);
+            }
+            //Console.WriteLine();
+        }
+    }
+}

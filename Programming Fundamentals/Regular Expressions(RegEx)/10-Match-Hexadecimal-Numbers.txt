@@ -1,0 +1,17 @@
+using System;
+using System.Text.RegularExpressions;
+
+namespace LAB
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string pattern = @"[0x]*?[A-F0-9]+\b";
+            string input = Console.ReadLine();
+            Regex regex = new Regex(pattern);
+            MatchCollection matched = regex.Matches(input);
+            Console.WriteLine(string.Join(" ",matched));
+        }
+    }
+}

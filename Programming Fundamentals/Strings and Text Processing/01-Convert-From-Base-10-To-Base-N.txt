@@ -1,0 +1,33 @@
+using System;
+using System.Diagnostics;
+using System.Globalization;
+using System.Numerics;
+using System.Text;
+using System.Linq;
+namespace StringManipulation_Exercises
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Problem 1.	Convert from Base-10 to Base-N
+
+            string[] numbers = Console.ReadLine().Split();
+            int @base = int.Parse(numbers[0]);
+            BigInteger numberInB10 = BigInteger.Parse(numbers[1]);
+            StringBuilder result = new StringBuilder();
+
+            while (numberInB10 != 0)
+            {
+                result.Append(numberInB10 % @base);
+                numberInB10 = numberInB10 / @base;
+            }
+
+            for (int i = result.Length - 1; i >= 0; i--)
+            {
+                Console.Write(result[i]);
+            }
+            Console.WriteLine();
+        }
+    }
+}

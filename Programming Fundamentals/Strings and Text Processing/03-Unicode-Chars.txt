@@ -1,0 +1,23 @@
+using System;
+using System.Text;
+
+namespace P03Unicode_Characters
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string word = Console.ReadLine();
+            char[] chars = word.ToCharArray();
+            foreach (var item in chars)
+            {
+                Console.Write(GetEscapeSequence(item));
+            }
+            Console.WriteLine();
+        }
+        static string GetEscapeSequence(char c)
+        {
+            return "\\u" + ((int)c).ToString("x4");
+        }
+    }
+}

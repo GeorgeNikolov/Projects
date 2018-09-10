@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+namespace P08Logs_Aggregator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            SortedDictionary<string, SortedDictionary<string, int>> logs = new SortedDictionary<string, SortedDictionary<string, int>>();
+
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < n; i++)
+            {
+                string[] data = Console.ReadLine().Split();
+                string ipAdress = data[0];
+                string user = data[1];
+                int duration = int.Parse(data[2]);
+                if (!logs.ContainsKey(user))
+                {
+                    logs.Add(user, new SortedDictionary<string, int>());
+                }
+
+                if (!logs[user].ContainsKey(ipAdress))
+                {
+                    logs[user].Add(ipAdress, duration);
+                }
+                else
+                {
+                    logs[user][ipAdress] += duration;
+                }
+
+            }
+
+            foreach (var log in logs)
+            {
+                List<string> ips = new List<string>();
+                int totalTime = 0;
+                foreach (var item in logs[log.Key].Distinct())
+                {
+                    ips.Add(item.Key);
+                    totalTime += item.Value;
+                }
+
+                Console.WriteLine($"{log.Key}: {totalTime} " + "[" + string.Join(", ", ips) + "]");
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+namespace P06UserLogs
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            SortedDictionary<string, Dictionary<string, int>> userLogs = new SortedDictionary<string, Dictionary<string, int>>();
+            while (true)
+            {
+                string line = Console.ReadLine();
+
+                if (line == "end")
+                {
+                    break;
+                }//IP=192.23.30.40 message='Hello&derps.' user=destroyer
+                string[] logs = line.Split(" =".ToCharArray().ToArray());
+                string IP = logs[1];
+                int counter = 0;
+                string username = logs[5];
+
+                if (!userLogs.ContainsKey(username))
+                {
+                    userLogs.Add(username,new Dictionary<string,int>());
+                }
+                if (!userLogs[username].ContainsKey(IP))
+                {
+                    userLogs[username][IP] = 1;
+                }
+                else
+                {
+                    userLogs[username][IP]++;
+                }
+            }
+            foreach (var item in userLogs)
+            {
+                Console.WriteLine($"{item.Key}: ");
+                foreach (var ipAdress in userLogs[item.Key])
+                {
+                    string last = userLogs[item.Key].Keys.Last();
+                    if(!(ipAdress.Key == last))
+                    {
+                        Console.Write($"{ipAdress.Key} => {ipAdress.Value}, "); 
+                    }
+                    else
+                    {
+                        Console.Write($"{ipAdress.Key} => {ipAdress.Value}." + Environment.NewLine);
+                    }
+                }
+            }
+
+        }
+    }
+}

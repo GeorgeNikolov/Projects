@@ -1,0 +1,21 @@
+using System;
+using System.Text.RegularExpressions;
+namespace Regex_Exercises
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string pattern = @"(?<=\s)[a-z0-9]+[-]?[.-_]?[a-z0-9]*@[a-z-]+[\.]+[a-z]+[\.]*[a-z]*\b";
+            string input = Console.ReadLine();
+            Regex regex = new Regex(pattern);
+            MatchCollection validEmails = regex.Matches(input);
+
+            foreach (Match email in validEmails)
+            {
+                Console.WriteLine(email);
+            }
+
+        }
+    }
+}

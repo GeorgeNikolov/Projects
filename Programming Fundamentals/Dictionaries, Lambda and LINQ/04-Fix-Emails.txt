@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+
+namespace P04Emails
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            while (true)
+            {
+                string line = Console.ReadLine();
+
+                if(line== "stop")
+                {
+                    break;
+                }
+
+                string mail = Console.ReadLine();
+                if (!dict.ContainsKey(line))
+                {
+                    if (!mail.EndsWith("us") || mail.EndsWith("uk"))
+                    {
+                        dict.Add(line, mail);
+                    }
+                }
+            }
+            foreach(var name in dict)
+            {
+                Console.WriteLine($"{name.Key} -> {name.Value}");
+            }
+        }
+    }
+}

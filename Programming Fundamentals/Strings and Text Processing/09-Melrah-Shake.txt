@@ -1,0 +1,38 @@
+using System;
+
+namespace P09MelrahShake
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string input = Console.ReadLine();
+            string pattern = Console.ReadLine();
+
+            while (true)
+            {
+                if (pattern.Length == 0)
+                {
+                    break;
+                }
+
+                int startIndex = input.IndexOf(pattern);
+                int endIndex = input.LastIndexOf(pattern);
+                if (startIndex == -1 || endIndex == -1)
+                {
+                    break;
+                }
+                input = input.Remove(endIndex, pattern.Length);
+                input = input.Remove(startIndex, pattern.Length);
+
+                int indexToRemove = pattern.Length / 2;
+                pattern = pattern.Remove(indexToRemove, 1);
+
+                Console.WriteLine("Shaked it.");
+            }
+            Console.WriteLine("No shake.");
+            Console.WriteLine(input);
+
+        }
+    }
+}

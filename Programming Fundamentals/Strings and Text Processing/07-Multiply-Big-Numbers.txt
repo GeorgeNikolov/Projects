@@ -1,0 +1,40 @@
+using System;
+using System.Text;
+namespace P07
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string firstNum = Console.ReadLine().TrimStart('0');
+            int secondNum = int.Parse(Console.ReadLine());
+            //if the delimiter is 0 
+            if (secondNum == 0)
+            {
+                Console.WriteLine(0);
+                return;
+            }
+            StringBuilder sb = new StringBuilder();
+            int remainder = 0;
+
+            for (int i = firstNum.Length - 1; i >= 0; i--)
+            {
+                int num = int.Parse(firstNum[i].ToString());
+                int sum = num * secondNum + remainder;
+                int lastDigit = sum % 10;
+                remainder = sum / 10;
+                sb.Append(lastDigit);
+            }
+            if (remainder > 0)
+            {
+                sb.Append(remainder);
+            }
+
+            for (int i = sb.Length - 1; i >= 0; i--)
+            {
+                Console.Write(sb[i]);
+            }
+
+        }
+    }
+}

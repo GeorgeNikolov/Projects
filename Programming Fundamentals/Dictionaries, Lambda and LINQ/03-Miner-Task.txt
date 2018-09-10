@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+
+namespace P03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<string, int> miner = new Dictionary<string, int>();
+
+            while (true)
+            {
+                string line = Console.ReadLine();
+
+                if(line == "stop")
+                {
+                    break;
+                }
+
+                int quantity = int.Parse(Console.ReadLine());
+
+                if (!miner.ContainsKey(line))
+                {
+                    miner.Add(line, quantity);
+                }
+                else
+                {
+                    miner[line] += quantity;
+                }
+            }
+            foreach (KeyValuePair<string,int> item in miner)
+            {
+                Console.WriteLine($"{item.Key} -> {item.Value}");
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+using System;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace P03CameraView
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = Console.ReadLine().Split().Select(x => int.Parse(x)).ToArray();
+            int skip = numbers[0];
+            int take = numbers[1];
+            string text = Console.ReadLine();
+            string pattern = $@"\|<.{{{skip}}}(\w{{0,{take}}})(?=|)";
+
+            Regex regex = new Regex(pattern);
+            MatchCollection matches = regex.Matches(text);
+
+            foreach (Match item in matches)
+            {
+                if(item == matches.Last())
+                {
+                    Console.Write(item.Groups[1]);
+                }
+                else
+                {
+                    Console.Write(item.Groups[1] + ", ");
+                }
+            }
+            Console.WriteLine();
+        }
+    }
+}

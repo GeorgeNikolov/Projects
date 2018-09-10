@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Linq;
+namespace P04Weather
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string pattern = @"([A-Z]{2})(\d+\.\d{0,2})([A-Za-z]+)\|";
+            Regex regex = new Regex(pattern);
+            Dictionary<string, List<string>> validinput = new Dictionary<string, List<string>>();
+            while (true)
+            {
+                string input = Console.ReadLine();
+
+                if (input == "end")
+                {
+                    break;
+                }
+                MatchCollection matches = regex.Matches(input);
+                
+                foreach (Match item in matches)
+                {
+
+                    if (!validinput.ContainsKey(item.Groups[1].Value))
+                    {
+                        validinput.Add(item.Groups[1].Value, new List<string>());
+                        validinput[item.Groups[1].Value].Add(item.Groups[2].Value);
+                        validinput[item.Groups[1].Value].Add(item.Groups[3].Value);
+                    }
+                    else
+                    {
+                        validinput[item.Groups[1].Value][0] = item.Groups[2].Value;
+                        validinput[item.Groups[1].Value][1] = item.Groups[3].Value;
+                    }
+
+                }
+            }
+            foreach (var forecast in validinput.OrderBy(c => double.Parse(c.Value[0])))
+            {
+                Console.WriteLine($"{forecast.Key} => {double.Parse(forecast.Value[0]):f2} => {forecast.Value[1]}");
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Numerics;
+using System.Text;
+using System.Linq;
+namespace StringManipulation_Exercises
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            string[] numbers = Console.ReadLine().Split();
+            int @base = int.Parse(numbers[0]);
+            string number = numbers[1];
+            BigInteger sum = 0;
+            int counter = 0;
+            for (int i = number.Length - 1; i >= 0; i--)
+            {
+                BigInteger num = BigInteger.Parse(number[i].ToString()) * BigInteger.Pow(@base,counter);
+                counter++;
+                sum += num;
+            }
+            Console.WriteLine(sum);
+        }
+    }
+}
