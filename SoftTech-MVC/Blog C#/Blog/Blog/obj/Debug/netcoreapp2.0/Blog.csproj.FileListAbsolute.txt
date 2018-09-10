@@ -1,0 +1,12 @@
+C:\Users\George\Desktop\Blog C#\Blog\Blog\bin\Debug\netcoreapp2.0\Blog.deps.json
+C:\Users\George\Desktop\Blog C#\Blog\Blog\bin\Debug\netcoreapp2.0\Blog.runtimeconfig.json
+C:\Users\George\Desktop\Blog C#\Blog\Blog\bin\Debug\netcoreapp2.0\Blog.runtimeconfig.dev.json
+C:\Users\George\Desktop\Blog C#\Blog\Blog\bin\Debug\netcoreapp2.0\Blog.dll
+C:\Users\George\Desktop\Blog C#\Blog\Blog\obj\Debug\netcoreapp2.0\Blog.csprojAssemblyReference.cache
+C:\Users\George\Desktop\Blog C#\Blog\Blog\obj\Debug\netcoreapp2.0\Blog.csproj.CoreCompileInputs.cache
+C:\Users\George\Desktop\Blog C#\Blog\Blog\obj\Debug\netcoreapp2.0\Blog.AssemblyInfoInputs.cache
+C:\Users\George\Desktop\Blog C#\Blog\Blog\obj\Debug\netcoreapp2.0\Blog.AssemblyInfo.cs
+C:\Users\George\Desktop\Blog C#\Blog\Blog\bin\Debug\netcoreapp2.0\Blog.pdb
+C:\Users\George\Desktop\Blog C#\Blog\Blog\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\George\Desktop\Blog C#\Blog\Blog\obj\Debug\netcoreapp2.0\Blog.dll
+C:\Users\George\Desktop\Blog C#\Blog\Blog\obj\Debug\netcoreapp2.0\Blog.pdb
